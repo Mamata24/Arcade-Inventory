@@ -10,6 +10,14 @@ window.addEventListener("load", function () {
     console.log(tbody)
 });
 
+window.addEventListener("click", function () {
+    var modal = document.getElementById("bill");
+    modal.addEventListener("Generate Bill", () => {
+        event.preventDefault()
+        render_ticket_modals(datas)
+    });
+});
+
 // var products = [{
 //     product: "Rice",
 //     rate: 45,
@@ -24,6 +32,7 @@ var datas = [];
 var current_page = 1;
 var tickets_per_page = 5;
 var total_page = 1;
+
 function add_data() {
     event.preventDefault();
 
@@ -53,7 +62,7 @@ function render_ticket(datas) {
     var tbody = document.querySelector("tbody");
     // console.log(tbody)
     tbody.innerHTML = "";
-    let total = datas.reduce((a, b) => a + b.amount * b.quantity, 0)
+    //let total = datas.reduce((a, b) => a + b.amount * b.quantity, 0)
     // console.log(total)
     if (datas.length == 0) {
         tbody.innerHTML =
@@ -69,7 +78,7 @@ function render_ticket(datas) {
 }
 
 function render_ticket_modals(datas) {
-    var tbody = document.querySelector(".amodal");
+    var tbody = document.querySelector(".modal-body");
     console.log(tbody)
     tbody.innerHTML = "";
     let total = datas.reduce((a, b) => a + b.amount * b.quantity, 0)
@@ -109,7 +118,22 @@ function create_row_data(data) {
     var time = document.createElement("td");
     time.textContent = data.time;
 
-    tr.append(id, items, quantity, amount, time);
+    var but = document.createElement("button")
+    but.textContent = "Update"
+    but.addEventListener("click", () => {
+        if (quantity.hasAttribute("contenteditable")) {
+            quantity.setAttribute("contenteditable", false)
+        }
+        else {
+            quantity.setAttribute("contenteditable", true)
+
+        }
+
+        data.quantity = quantity.textContent
+    })
+
+
+    tr.append(id, items, quantity, amount, time, but);
 
     return tr;
 }
