@@ -41,26 +41,53 @@ function add_data() {
         time: time,
     };
 
-    datas.push(JSON.stringify(data));
-
+    datas.push(data);
+    let localdata = JSON.parse(localStorage.getItem('cart')) || []
+    localdata = datas
+    localStorage.setItem('cart', JSON.stringify(localdata))
+    render_ticket_modals(datas)
     render_ticket(datas);
 }
 
 function render_ticket(datas) {
     var tbody = document.querySelector("tbody");
-    console.log(tbody)
+    // console.log(tbody)
     tbody.innerHTML = "";
-
+    let total = datas.reduce((a, b) => a + b.amount * b.quantity, 0)
+    // console.log(total)
     if (datas.length == 0) {
         tbody.innerHTML =
             '<tr><td class="text-center text-red" colspan="4">No Data Available</td></tr>';
     }
     for (var i = 0; i < tickets_per_page; i++) {
-        console.log(datas[i])
+        //console.log(datas[i])
         var row = create_row_data(datas[i]);
         tbody.append(row);
     }
+
     setup_pagination();
+}
+
+function render_ticket_modals(datas) {
+    var tbody = document.querySelector(".amodal");
+    console.log(tbody)
+    tbody.innerHTML = "";
+    let total = datas.reduce((a, b) => a + b.amount * b.quantity, 0)
+    // console.log(total)
+    if (datas.length == 0) {
+        tbody.innerHTML =
+            '<p class="text-center text-red" colspan="4">No Data Available</p>';
+    }
+    for (var i = 0; i < datas.length; i++) {
+        //console.log(datas[i])
+        var row = document.createElement('div')
+        row.innerHTML = `<p>Itmes is ${datas[i].items} and total price is ${datas[i].amount * datas[i].quantity}</p>`;
+        tbody.append(row);
+    }
+    var last = document.createElement('div')
+    last.innerHTML = `<h1>Total payable amout is ${total}</h1>`
+    tbody.append(last)
+
 }
 
 //create row
