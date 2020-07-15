@@ -1,0 +1,45 @@
+body{
+    background-image: url("https://lh3.googleusercontent.com/proxy/85yb-_JIgFpz1hnvbQImabB5TSCAj0BwfqiTRqINEOApBuui22nhZ_oSDKn5O9S1WIhlrQhCEjxtzlY1Kum8ww83P8S_");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.form button:hover, .form button:active {
+    background: #43A047;
+}
+
+.form .message a{
+    color: #000000;
+    text-decoration: none;
+}
+.form .register-form{
+    display: none;
+}
+.form .login-form{
+    display:none;
+}
+.show
+{
+display: block !important;
+}
+.form{
+    margin-top: 150px;
+}
+
+header{
+    position: fixed;
+    background: #22242A;
+    padding: 20px;
+    width: 100%;
+    height: 80px;
+}
+
+.left-area{
+    color:#fff;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
