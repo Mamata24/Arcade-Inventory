@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inventory</title>
+
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+	</head>
+
+	<body id="admin_page">
+		<input type="checkbox" id="check" />
+		<!--header area start-->
+		<header class="border">
+			<label for="check">
+				<i class="fas fa-bars" id="sidebar_btn"></i>
+			</label>
+			<div class="left_area">
+				<h3>Payment <span>System</span></h3>
+			</div>
+			<div class="right_area">
+				<a href="#" class="logout_btn">Logout</a>
+			</div>
+		</header>
+		<!--header area end-->
+
+		<!--sidebar start-->
+		<div class="sidebar border">
+			<center>
+				<img src="resources/manager.png" class="profile_image" alt="" />
+				<h4>Admin</h4>
+			</center>
+			<a href="admin_page.html"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+			<a href="inventory.html"><i class="fas fa-cogs"></i><span>Inventory</span></a>
+			<a href="employee.html"><i class="fas fa-table"></i><span>Add new employee</span></a>
+			<a href="#" id="show"><i class="fas fa-chart-line"></i><span>Analytics</span></a>
+			<a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+			<a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+		</div>
+		<!--sidebar end-->
+
+		<div class="content border" id="newUser">
+			<div class="loading">
+				<div class="dot dot1"></div>
+				<div class="dot dot2"></div>
+				<div class="dot dot3"></div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<button id="addItem" class="btn btn-info">Add new Item</button>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col" id="addForm">
+						<form>
+							<div class="form-row">
+								<div class="form-group col-md-3">
+									<label for="item">Item</label>
+									<input type="text" class="form-control" id="item" />
+								</div>
+								<div class="form-group col-md-3">
+									<label for="quantity">Quantity</label>
+									<input type="text" class="form-control" id="quantity" />
+								</div>
+
+								<div class="form-group col-md-3">
+									<label for="price">Price per Unit(in Rs.)</label>
+									<input type="text" class="form-control" id="price" />
+								</div>
+								<div class="form-group col-md-3 mt-4">
+									<button id="addBtn" class="btn btn-success">Add</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="container mt-5">
+				<div class="row">
+					<div class="col">
+						<table class="table table-hover">
+							<thead>
+								<tr class="table-dark">
+									<th scope="col">#</th>
+									<th scope="col">Item</th>
+									<th scope="col">Quantity</th>
+									<th scope="col">Price per unit(in Rs.)</th>
+									<th scope="col">Update</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>Mark</td>
+									<td>10</td>
+									<td>100</td>
+									<td><button class="btn btn-secondary">Update</button></td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>Jacob</td>
+									<td>22</td>
+									<td>150</td>
+									<td><button class="btn btn-secondary">Update</button></td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>Larry the Bird</td>
+									<td>36</td>
+									<td>180</td>
+									<td><button class="btn btn-secondary">Update</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<script type="text/javascript" src="inventory.js"></script>
+	</body>
+</html>
