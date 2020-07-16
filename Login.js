@@ -31,7 +31,7 @@ document.getElementById("loginbtn").addEventListener("click", function (event) {
 
 			obj["user"] = name1[i];
 			let date = new Date();
-			localStorage.setItem("time", date.toLocaleTimeString())
+			localStorage.setItem("time", date.toLocaleTimeString());
 			// obj["time"] = time;
 
 			// append_local(name1[i], time);
@@ -42,6 +42,8 @@ document.getElementById("loginbtn").addEventListener("click", function (event) {
 			// dash_page()
 		} else if (user == "admin" && password == "admin") {
 			// wrong = false;
+			let date = new Date();
+			localStorage.setItem("time", date.toLocaleTimeString());
 			location.href = "admin_page.html";
 		}
 	}
