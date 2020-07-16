@@ -9,9 +9,17 @@ body {
 	padding: 0;
 }
 
+.left_area span {
+	color: #19b3d3;
+}
+
 .form button:hover,
 .form button:active {
 	background: #43a047;
+}
+
+bg-dark {
+	opacity: 0.4 !important;
 }
 
 .form .message a {
