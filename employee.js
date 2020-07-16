@@ -66,7 +66,7 @@ function renderDetails(data) {
 	console.log(thankyou, data);
 	result.append(thankyou, welcome);
 
-	username.textContent = "Name : " + data.FirstName;
+	username.textContent = `Name : ${data.FirstName}  ${data.lastName}`;
 	addressP.textContent = "Address : " + data.address + " " + data.address2;
 	cityP.textContent = "City : " + data.city;
 	emailP.textContent = "Email : " + data.email;
