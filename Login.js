@@ -54,7 +54,7 @@ document.getElementById("loginbtn").addEventListener("click", function (event) {
 		if (user["password"] === password.value) {
 			alert("Login Successful");
 			window.localStorage.setItem("user", username.value);
-			window.location.href = "./user.html";
+			window.location.href = "./user_page.html";
 		} else {
 			alert("Incorrect Password");
 		}
