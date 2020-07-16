@@ -57,6 +57,12 @@ function add_data() {
     render_ticket_modals(datas)
     render_ticket(datas);
 }
+function updateData(i, data) {
+    datas.splice(i, 1, data);
+    //datas[i] = data;
+    console.log(data, datas[i])
+    return;
+}
 
 function render_ticket(datas) {
     var tbody = document.querySelector("tbody");
@@ -70,7 +76,7 @@ function render_ticket(datas) {
     }
     for (var i = 0; i < tickets_per_page; i++) {
         //console.log(datas[i])
-        var row = create_row_data(datas[i]);
+        var row = create_row_data(datas[i], i);
         tbody.append(row);
     }
 
@@ -90,17 +96,17 @@ function render_ticket_modals(datas) {
     for (var i = 0; i < datas.length; i++) {
         //console.log(datas[i])
         var row = document.createElement('div')
-        row.innerHTML = `<p>Itmes is ${datas[i].items} and total price is ${datas[i].amount * datas[i].quantity}</p>`;
+        row.innerHTML = `<p>Items: ${datas[i].items} <br/> Amount: ${datas[i].amount * datas[i].quantity}</p>`;
         tbody.append(row);
     }
     var last = document.createElement('div')
-    last.innerHTML = `<h1>Total payable amout is ${total}</h1>`
+    last.innerHTML = `<h4>Payable Amount: ₹ ${total}</h4>`
     tbody.append(last)
 
 }
 
 //create row
-function create_row_data(data) {
+function create_row_data(data, i) {
     var tr = document.createElement("tr");
 
     var id = document.createElement("td");
@@ -130,6 +136,8 @@ function create_row_data(data) {
         }
 
         data.quantity = quantity.textContent
+        updateData(i, data)
+        console.log(data.quantity)
     })
 
 
