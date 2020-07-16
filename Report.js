@@ -98,7 +98,7 @@ function chartInventory() {
             //for title of chart
             title: {
                 display: true,
-                text: "Billing Report of a month",
+                text: "Inventory Report",
                 fontSize: 24,
             },
             scales: {
