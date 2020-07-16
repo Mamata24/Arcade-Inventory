@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User</title>
-
-    <link rel="stylesheet" type="text/css" href="user_page.css" />
+    <title>Report</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="report.css" />
+
 </head>
 
-<body id="user_page">
+<body id="report">
     <input type="checkbox" id="check" />
     <!--header area start-->
     <header class="border">
@@ -44,14 +44,9 @@
     <!--sidebar end-->
 
     <div class="content border">
-        <div class="loading">
-            <div class="dot dot1"></div>
-            <div class="dot dot2"></div>
-            <div class="dot dot3"></div>
-        </div>
-        <div class="welcome">
-            <span class="text1">Welcome in</span>
-            <span class="text2">Payment System</span>
+        <button type="button" id="show" class="btn btn-success">Show Report</button>
+        <div class="border">
+            <canvas id="chart" width="400" height="100" aria-label="" role="img"></canvas>
         </div>
 
     </div>
@@ -66,6 +61,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="Report.js"></script>
     <script>
         document.getElementById("time").textContent = localStorage.getItem("time")
     </script>

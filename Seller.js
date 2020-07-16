@@ -2,7 +2,7 @@ window.addEventListener("load", function () {
     var form = document.getElementById("form");
     form.addEventListener("submit", () => {
         event.preventDefault()
-        add_data()
+        add_data(datas)
     });
     console.log(form)
     // display_data();
@@ -10,13 +10,13 @@ window.addEventListener("load", function () {
     console.log(tbody)
 });
 
-window.addEventListener("click", function () {
-    var modal = document.getElementById("bill");
-    modal.addEventListener("Generate Bill", () => {
-        event.preventDefault()
-        render_ticket_modals(datas)
-    });
-});
+// window.addEventListener("click", function () {
+//     var modal = document.getElementById("bill");
+//     modal.addEventListener("Generate Bill", () => {
+//         event.preventDefault()
+//         render_ticket_modals(datas)
+//     });
+// });
 
 // var products = [{
 //     product: "Rice",
@@ -33,7 +33,7 @@ var current_page = 1;
 var tickets_per_page = 5;
 var total_page = 1;
 
-function add_data() {
+function add_data(datas) {
     event.preventDefault();
 
     var items = document.getElementById("items").value;
@@ -57,11 +57,13 @@ function add_data() {
     render_ticket_modals(datas)
     render_ticket(datas);
 }
-function updateData(i, data) {
+
+function updateData(i, datas, data) {
     datas.splice(i, 1, data);
     //datas[i] = data;
     console.log(data, datas[i])
-    return;
+    render_ticket_modals(datas)
+    return datas;
 }
 
 function render_ticket(datas) {
@@ -76,8 +78,9 @@ function render_ticket(datas) {
     }
     for (var i = 0; i < tickets_per_page; i++) {
         //console.log(datas[i])
-        var row = create_row_data(datas[i], i);
-        tbody.append(row);
+        var row = create_row_data(datas, i);
+        tbody.append(row.tr);
+        // add_data(row.datas)
     }
 
     setup_pagination();
@@ -106,7 +109,8 @@ function render_ticket_modals(datas) {
 }
 
 //create row
-function create_row_data(data, i) {
+function create_row_data(datas, i) {
+    var data = datas[i]
     var tr = document.createElement("tr");
 
     var id = document.createElement("td");
@@ -136,14 +140,19 @@ function create_row_data(data, i) {
         }
 
         data.quantity = quantity.textContent
-        updateData(i, data)
+        datas = updateData(i, datas, data)
         console.log(data.quantity)
     })
 
 
     tr.append(id, items, quantity, amount, time, but);
 
-    return tr;
+    return {
+        tr: tr,
+        datas: datas
+    }
+        ;
+
 }
 
 // var filter = document.getElementById("filter");

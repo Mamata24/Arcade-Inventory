@@ -30,6 +30,8 @@ document.getElementById("loginbtn").addEventListener("click", function (event) {
 			// wrong = false;
 
 			obj["user"] = name1[i];
+			let date = new Date();
+			localStorage.setItem("time", date.toLocaleTimeString())
 			// obj["time"] = time;
 
 			// append_local(name1[i], time);
